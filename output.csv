@@ -1,0 +1,1662 @@
+&name&level&tag&description&level2&type&{http://www.w3.org/XML/1998/namespace}lang&minOccurs&maxOccurs&base&value&default&xpath
+0&DAC6_Arrangement&0&element&"
+        "&0&&&&&&&&
+1&Header&3&element&&0&dac6:Header_Type&&&&&&&
+2&Header_Type&0&complexType&"
+        "&1&&&&&&&&
+3&&2&documentation&"Information in the message header identifies the Member State that is
+                sending the message.
+            "&1&&en&&&&&&
+4&TransmittingCountry&2&element&&1&iso:MSCountryCode_Type&&&&&&&
+5&ReceivingCountries&2&element&&1&iso:MSCountryCode_Type&&0&unbounded&&&&
+6&MessageRefId&2&element&&1&dac6:StringMin1Max200_Type&&&&&&&
+7&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+8&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+9&&2&minLength&&7&&&&&&1&&
+10&&2&maxLength&&7&&&&&&200&&
+11&&2&whiteSpace&&7&&&&&&collapse&&
+12&Timestamp&2&element&&1&xsd:dateTime&&&&&&&
+13&ArrangementVersionTimestamp&3&element&&0&xsd:dateTime&&0&&&&&
+14&ArrangementID&3&element&&0&dac6:Arrangement_Type&&&&&&&
+15&Arrangement_Type&0&complexType&"
+        "&1&&&&&&&&
+16&&2&extension&"
+                "&1&&&&&dac6:UUID_Type&&&
+17&IncoherentArrangement&3&attribute&"
+                    "&1&xsd:boolean&&&&&&&
+18&&5&documentation&"Information about the incoherence of the arrangement (true)
+                            or not (false or not provided).
+                        "&1&&en&&&&&&
+19&MarketableArrangement&3&attribute&"
+                    "&1&xsd:boolean&&&&&&&
+20&&5&documentation&"Information about the marketable arrangement (true)
+                            or not (false or not provided).
+                        "&1&&en&&&&&&
+21&DAC6Disclosures&3&element&&0&dac6:DAC6Disclosure_Type&&&unbounded&&&&
+22&DAC6Disclosure_Type&0&complexType&"
+        "&1&&&&&&&&
+23&DisclosureID&2&element&&1&dac6:UUID_Type&&&&&&&
+24&UUID_Type&0&simpleType&"
+        "&2&&&&&&&&
+25&&1&restriction&"
+            "&2&&&&&xsd:string&&&
+26&&2&length&&2&&&&&&17&&
+27&&2&whiteSpace&&2&&&&&&collapse&&
+28&DisclosureVersionTimestamp&2&element&&1&xsd:dateTime&&0&&&&&
+29&DisclosureImportInstruction&2&element&&1&dac6:DisclosureVersion_EnumType&&&&&&&
+30&DisclosureVersion_EnumType&0&simpleType&"
+        "&2&&&&&&&&
+31&&2&documentation&Business Version&2&&en&&&&&&
+32&&1&restriction&"
+            "&2&&&&&xsd:string&&&
+33&&2&enumeration&"
+                "&2&&&&&&DAC6INI&&
+34&&2&enumeration&"
+                "&2&&&&&&DAC6UPD&&
+35&&2&enumeration&"
+                "&2&&&&&&DAC6UNCH&&
+36&&2&enumeration&"
+                "&2&&&&&&DAC6EXP&&
+37&Language&2&element&&1&iso:LanguageCode_Type&&0&&&&&
+38&Disclosing&2&element&&1&dac6:Discloser&&&&&&&
+39&Discloser&0&complexType&"
+        "&2&&&&&&&&
+40&&2&extension&&2&&&&&dac6:Disclosing_Type&&&
+41&InitialDisclosureMA&2&element&&1&xsd:boolean&&&&&&false&
+42&Incoherent&2&element&&1&dac6:Incoherent_EnumType&&0&&&&&
+43&Incoherent_EnumType&0&simpleType&"
+        "&2&&&&&&&&
+44&&1&restriction&"
+            "&2&&&&&xsd:string&&&
+45&&2&enumeration&&2&&&&&&true&&
+46&&2&enumeration&&2&&&&&&false&&
+47&&2&enumeration&&2&&&&&&indeterminate&&
+48&RelevantTaxPayers&2&element&&1&dac6:RelevantTaxpayers_Type&&0&&&&&
+49&RelevantTaxpayers_Type&0&complexType&"
+        "&2&&&&&&&&
+50&RelevantTaxpayer&2&element&&2&dac6:TaxPayer_Type&&0&unbounded&&&&
+51&TaxPayer_Type&0&complexType&"
+        "&3&&&&&&&&
+52&ID&2&element&&3&dac6:PersonOrOrganisationUnknown_Type&&&&&&&
+53&PersonOrOrganisationUnknown_Type&0&complexType&"
+        "&4&&&&&&&&
+54&Individual&3&element&&4&dac6:PersonUnknown_Type&&&&&&&
+55&PersonUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+56&&2&documentation&"
+                This container brings together all data about a person as a stakeholder. Name and country of
+                residency are required components and each can
+                be present more than once to enable as complete a description as possible. Whenever possible one or
+                more identifiers (TIN) should be added. Additional data that describes and identifies the party must
+                be
+                given, as Birth date and Birth place.
+            "&5&&en&&&&&&
+57&IndividualName&2&element&&5&dac6:NamePersonUnknown_Type&&&&&&&
+58&NamePersonUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+59&&2&documentation&"The user must spread the data about the name of a party over up to six
+                elements. The container element for this will be 'NameFix'.
+            "&6&&en&&&&&&
+60&PrecedingTitle&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+61&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+62&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+63&&2&minLength&&7&&&&&&1&&
+64&&2&maxLength&&7&&&&&&200&&
+65&&2&whiteSpace&&7&&&&&&collapse&&
+66&&4&documentation&His Excellency,Estate of the Late ...&6&&en&&&&&&
+67&Title&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+68&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+69&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+70&&2&minLength&&7&&&&&&1&&
+71&&2&maxLength&&7&&&&&&200&&
+72&&2&whiteSpace&&7&&&&&&collapse&&
+73&&4&documentation&"Greeting title. Example: Mr, Dr, Ms, Herr, etc.
+                    "&6&&en&&&&&&
+74&FirstName&2&element&"
+                "&6&dac6:StringMax200Unknown_Type&&&&&&&
+75&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+76&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+77&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+78&&4&documentation&FirstName of the person&6&&en&&&&&&
+79&MiddleName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+80&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+81&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+82&&2&minLength&&7&&&&&&1&&
+83&&2&maxLength&&7&&&&&&200&&
+84&&2&whiteSpace&&7&&&&&&collapse&&
+85&&4&documentation&"Middle name (essential part of the name for many nationalities).
+                        Example: Sakthi in ""Nivetha Sakthi Shantha"".
+                    "&6&&en&&&&&&
+86&NamePrefix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+87&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+88&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+89&&2&minLength&&7&&&&&&1&&
+90&&2&maxLength&&7&&&&&&200&&
+91&&2&whiteSpace&&7&&&&&&collapse&&
+92&&4&documentation&"de, van, van de, von, etc. Example: Derick de Clarke
+                    "&6&&en&&&&&&
+93&LastName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&&&&&&
+94&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+95&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+96&&2&minLength&&7&&&&&&1&&
+97&&2&maxLength&&7&&&&&&200&&
+98&&2&whiteSpace&&7&&&&&&collapse&&
+99&&4&documentation&"Represents the position of the name in a name string. Can be
+                        Given Name, Forename, Christian Name, Surname, Family Name, etc. Use the attribute ""NameType""
+                        to define what type this name is.
+                        In case of a company, this field can be used for the company name.
+                    "&6&&en&&&&&&
+100&GenerationIdentifier&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+101&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+102&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+103&&2&minLength&&7&&&&&&1&&
+104&&2&maxLength&&7&&&&&&200&&
+105&&2&whiteSpace&&7&&&&&&collapse&&
+106&&4&documentation&Jnr, Thr Third, III&6&&en&&&&&&
+107&Suffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+108&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+109&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+110&&2&minLength&&7&&&&&&1&&
+111&&2&maxLength&&7&&&&&&200&&
+112&&2&whiteSpace&&7&&&&&&collapse&&
+113&&4&documentation&Could be compressed initials - PhD, VC, QC&6&&en&&&&&&
+114&GeneralSuffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+115&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+116&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+117&&2&minLength&&7&&&&&&1&&
+118&&2&maxLength&&7&&&&&&200&&
+119&&2&whiteSpace&&7&&&&&&collapse&&
+120&&4&documentation&Deceased, Retired ...&6&&en&&&&&&
+121&BirthDate&2&element&&5&dac6:DateUnknown_Type&&&&&&&
+122&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+123&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+124&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+125&BirthPlace&2&element&&5&dac6:StringMax200Unknown_Type&&&&&&&
+126&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+127&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+128&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+129&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+130&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+131&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+132&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+133&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+134&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+135&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+136&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+137&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+138&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+139&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+140&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+141&&2&minLength&&6&&&&&&1&&
+142&&2&maxLength&&6&&&&&&400&&
+143&&2&whiteSpace&&6&&&&&&collapse&&
+144&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+145&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+146&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+147&&2&minLength&&6&&&&&&1&&
+148&&2&maxLength&&6&&&&&&400&&
+149&&2&whiteSpace&&6&&&&&&collapse&&
+150&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+151&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+152&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+153&&2&minLength&&6&&&&&&1&&
+154&&2&maxLength&&6&&&&&&400&&
+155&&2&whiteSpace&&6&&&&&&collapse&&
+156&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+157&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+158&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+159&&2&minLength&&6&&&&&&1&&
+160&&2&maxLength&&6&&&&&&400&&
+161&&2&whiteSpace&&6&&&&&&collapse&&
+162&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+163&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+164&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+165&&2&minLength&&6&&&&&&1&&
+166&&2&maxLength&&6&&&&&&400&&
+167&&2&whiteSpace&&6&&&&&&collapse&&
+168&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+169&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+170&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+171&&2&minLength&&6&&&&&&1&&
+172&&2&maxLength&&6&&&&&&400&&
+173&&2&whiteSpace&&6&&&&&&collapse&&
+174&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+175&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+176&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+177&&2&minLength&&6&&&&&&1&&
+178&&2&maxLength&&6&&&&&&400&&
+179&&2&whiteSpace&&6&&&&&&collapse&&
+180&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+181&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+182&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+183&&2&minLength&&6&&&&&&1&&
+184&&2&maxLength&&6&&&&&&400&&
+185&&2&whiteSpace&&6&&&&&&collapse&&
+186&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+187&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+188&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+189&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+190&&2&minLength&&6&&&&&&1&&
+191&&2&maxLength&&6&&&&&&400&&
+192&&2&whiteSpace&&6&&&&&&collapse&&
+193&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+194&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+195&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+196&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+197&uniqueResCountryCodeIndividualUnknown&3&unique&"
+                    "&5&&&&&&&&
+198&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+199&&4&field&&5&&&&&&&&.
+200&Organisation&3&element&&4&dac6:OrganisationUnknown_Type&&&&&&&
+201&OrganisationUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+202&&2&documentation&"
+            "&5&&en&&&&&&
+203&OrganisationName&2&element&&5&dac6:NameOrganisation_Type&&&unbounded&&&&
+204&NameOrganisation_Type&0&complexType&"
+        "&6&&&&&&&&
+205&&2&documentation&Name of organisation&6&&en&&&&&&
+206&&2&extension&"
+                "&6&&&&&dac6:StringMin1Max200_Type&&&
+207&language&3&attribute&"
+                    "&6&iso:LanguageCode_Type&&&&&&&
+208&&5&documentation&Language used&6&&en&&&&&&
+209&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+210&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+211&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+212&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+213&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+214&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+215&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+216&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+217&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+218&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+219&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+220&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+221&&2&minLength&&6&&&&&&1&&
+222&&2&maxLength&&6&&&&&&400&&
+223&&2&whiteSpace&&6&&&&&&collapse&&
+224&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+225&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+226&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+227&&2&minLength&&6&&&&&&1&&
+228&&2&maxLength&&6&&&&&&400&&
+229&&2&whiteSpace&&6&&&&&&collapse&&
+230&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+231&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+232&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+233&&2&minLength&&6&&&&&&1&&
+234&&2&maxLength&&6&&&&&&400&&
+235&&2&whiteSpace&&6&&&&&&collapse&&
+236&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+237&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+238&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+239&&2&minLength&&6&&&&&&1&&
+240&&2&maxLength&&6&&&&&&400&&
+241&&2&whiteSpace&&6&&&&&&collapse&&
+242&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+243&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+244&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+245&&2&minLength&&6&&&&&&1&&
+246&&2&maxLength&&6&&&&&&400&&
+247&&2&whiteSpace&&6&&&&&&collapse&&
+248&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+249&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+250&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+251&&2&minLength&&6&&&&&&1&&
+252&&2&maxLength&&6&&&&&&400&&
+253&&2&whiteSpace&&6&&&&&&collapse&&
+254&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+255&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+256&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+257&&2&minLength&&6&&&&&&1&&
+258&&2&maxLength&&6&&&&&&400&&
+259&&2&whiteSpace&&6&&&&&&collapse&&
+260&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+261&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+262&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+263&&2&minLength&&6&&&&&&1&&
+264&&2&maxLength&&6&&&&&&400&&
+265&&2&whiteSpace&&6&&&&&&collapse&&
+266&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+267&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+268&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+269&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+270&&2&minLength&&6&&&&&&1&&
+271&&2&maxLength&&6&&&&&&400&&
+272&&2&whiteSpace&&6&&&&&&collapse&&
+273&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+274&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+275&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+276&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+277&uniqueResCountryCodeOrganisationUnknown&3&unique&"
+                    "&5&&&&&&&&
+278&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+279&&4&field&&5&&&&&&&&.
+280&TaxpayerImplementingDate&2&element&&3&dac6:DateUnknown_Type&&0&&&&&
+281&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+282&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+283&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+284&AssociatedEnterprises&2&element&&3&dac6:AssociatedEnterprises_Type&&0&&&&&
+285&AssociatedEnterprises_Type&0&complexType&"
+        "&4&&&&&&&&
+286&AssociatedEnterprise&2&element&&4&dac6:AssociatedEnterprise_Type&&0&unbounded&&&&
+287&AssociatedEnterprise_Type&0&complexType&"
+        "&5&&&&&&&&
+288&AssociatedEnterpriseID&2&element&&5&dac6:PersonOrOrganisationUnknown_Type&&&&&&&
+289&PersonOrOrganisationUnknown_Type&0&complexType&"
+        "&4&&&&&&&&
+290&Individual&3&element&&4&dac6:PersonUnknown_Type&&&&&&&
+291&PersonUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+292&&2&documentation&"
+                This container brings together all data about a person as a stakeholder. Name and country of
+                residency are required components and each can
+                be present more than once to enable as complete a description as possible. Whenever possible one or
+                more identifiers (TIN) should be added. Additional data that describes and identifies the party must
+                be
+                given, as Birth date and Birth place.
+            "&5&&en&&&&&&
+293&IndividualName&2&element&&5&dac6:NamePersonUnknown_Type&&&&&&&
+294&NamePersonUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+295&&2&documentation&"The user must spread the data about the name of a party over up to six
+                elements. The container element for this will be 'NameFix'.
+            "&6&&en&&&&&&
+296&PrecedingTitle&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+297&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+298&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+299&&2&minLength&&7&&&&&&1&&
+300&&2&maxLength&&7&&&&&&200&&
+301&&2&whiteSpace&&7&&&&&&collapse&&
+302&&4&documentation&His Excellency,Estate of the Late ...&6&&en&&&&&&
+303&Title&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+304&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+305&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+306&&2&minLength&&7&&&&&&1&&
+307&&2&maxLength&&7&&&&&&200&&
+308&&2&whiteSpace&&7&&&&&&collapse&&
+309&&4&documentation&"Greeting title. Example: Mr, Dr, Ms, Herr, etc.
+                    "&6&&en&&&&&&
+310&FirstName&2&element&"
+                "&6&dac6:StringMax200Unknown_Type&&&&&&&
+311&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+312&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+313&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+314&&4&documentation&FirstName of the person&6&&en&&&&&&
+315&MiddleName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+316&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+317&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+318&&2&minLength&&7&&&&&&1&&
+319&&2&maxLength&&7&&&&&&200&&
+320&&2&whiteSpace&&7&&&&&&collapse&&
+321&&4&documentation&"Middle name (essential part of the name for many nationalities).
+                        Example: Sakthi in ""Nivetha Sakthi Shantha"".
+                    "&6&&en&&&&&&
+322&NamePrefix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+323&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+324&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+325&&2&minLength&&7&&&&&&1&&
+326&&2&maxLength&&7&&&&&&200&&
+327&&2&whiteSpace&&7&&&&&&collapse&&
+328&&4&documentation&"de, van, van de, von, etc. Example: Derick de Clarke
+                    "&6&&en&&&&&&
+329&LastName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&&&&&&
+330&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+331&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+332&&2&minLength&&7&&&&&&1&&
+333&&2&maxLength&&7&&&&&&200&&
+334&&2&whiteSpace&&7&&&&&&collapse&&
+335&&4&documentation&"Represents the position of the name in a name string. Can be
+                        Given Name, Forename, Christian Name, Surname, Family Name, etc. Use the attribute ""NameType""
+                        to define what type this name is.
+                        In case of a company, this field can be used for the company name.
+                    "&6&&en&&&&&&
+336&GenerationIdentifier&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+337&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+338&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+339&&2&minLength&&7&&&&&&1&&
+340&&2&maxLength&&7&&&&&&200&&
+341&&2&whiteSpace&&7&&&&&&collapse&&
+342&&4&documentation&Jnr, Thr Third, III&6&&en&&&&&&
+343&Suffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+344&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+345&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+346&&2&minLength&&7&&&&&&1&&
+347&&2&maxLength&&7&&&&&&200&&
+348&&2&whiteSpace&&7&&&&&&collapse&&
+349&&4&documentation&Could be compressed initials - PhD, VC, QC&6&&en&&&&&&
+350&GeneralSuffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+351&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+352&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+353&&2&minLength&&7&&&&&&1&&
+354&&2&maxLength&&7&&&&&&200&&
+355&&2&whiteSpace&&7&&&&&&collapse&&
+356&&4&documentation&Deceased, Retired ...&6&&en&&&&&&
+357&BirthDate&2&element&&5&dac6:DateUnknown_Type&&&&&&&
+358&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+359&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+360&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+361&BirthPlace&2&element&&5&dac6:StringMax200Unknown_Type&&&&&&&
+362&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+363&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+364&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+365&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+366&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+367&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+368&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+369&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+370&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+371&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+372&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+373&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+374&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+375&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+376&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+377&&2&minLength&&6&&&&&&1&&
+378&&2&maxLength&&6&&&&&&400&&
+379&&2&whiteSpace&&6&&&&&&collapse&&
+380&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+381&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+382&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+383&&2&minLength&&6&&&&&&1&&
+384&&2&maxLength&&6&&&&&&400&&
+385&&2&whiteSpace&&6&&&&&&collapse&&
+386&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+387&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+388&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+389&&2&minLength&&6&&&&&&1&&
+390&&2&maxLength&&6&&&&&&400&&
+391&&2&whiteSpace&&6&&&&&&collapse&&
+392&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+393&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+394&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+395&&2&minLength&&6&&&&&&1&&
+396&&2&maxLength&&6&&&&&&400&&
+397&&2&whiteSpace&&6&&&&&&collapse&&
+398&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+399&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+400&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+401&&2&minLength&&6&&&&&&1&&
+402&&2&maxLength&&6&&&&&&400&&
+403&&2&whiteSpace&&6&&&&&&collapse&&
+404&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+405&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+406&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+407&&2&minLength&&6&&&&&&1&&
+408&&2&maxLength&&6&&&&&&400&&
+409&&2&whiteSpace&&6&&&&&&collapse&&
+410&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+411&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+412&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+413&&2&minLength&&6&&&&&&1&&
+414&&2&maxLength&&6&&&&&&400&&
+415&&2&whiteSpace&&6&&&&&&collapse&&
+416&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+417&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+418&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+419&&2&minLength&&6&&&&&&1&&
+420&&2&maxLength&&6&&&&&&400&&
+421&&2&whiteSpace&&6&&&&&&collapse&&
+422&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+423&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+424&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+425&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+426&&2&minLength&&6&&&&&&1&&
+427&&2&maxLength&&6&&&&&&400&&
+428&&2&whiteSpace&&6&&&&&&collapse&&
+429&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+430&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+431&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+432&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+433&uniqueResCountryCodeIndividualUnknown&3&unique&"
+                    "&5&&&&&&&&
+434&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+435&&4&field&&5&&&&&&&&.
+436&Organisation&3&element&&4&dac6:OrganisationUnknown_Type&&&&&&&
+437&OrganisationUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+438&&2&documentation&"
+            "&5&&en&&&&&&
+439&OrganisationName&2&element&&5&dac6:NameOrganisation_Type&&&unbounded&&&&
+440&NameOrganisation_Type&0&complexType&"
+        "&6&&&&&&&&
+441&&2&documentation&Name of organisation&6&&en&&&&&&
+442&&2&extension&"
+                "&6&&&&&dac6:StringMin1Max200_Type&&&
+443&language&3&attribute&"
+                    "&6&iso:LanguageCode_Type&&&&&&&
+444&&5&documentation&Language used&6&&en&&&&&&
+445&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+446&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+447&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+448&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+449&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+450&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+451&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+452&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+453&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+454&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+455&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+456&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+457&&2&minLength&&6&&&&&&1&&
+458&&2&maxLength&&6&&&&&&400&&
+459&&2&whiteSpace&&6&&&&&&collapse&&
+460&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+461&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+462&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+463&&2&minLength&&6&&&&&&1&&
+464&&2&maxLength&&6&&&&&&400&&
+465&&2&whiteSpace&&6&&&&&&collapse&&
+466&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+467&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+468&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+469&&2&minLength&&6&&&&&&1&&
+470&&2&maxLength&&6&&&&&&400&&
+471&&2&whiteSpace&&6&&&&&&collapse&&
+472&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+473&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+474&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+475&&2&minLength&&6&&&&&&1&&
+476&&2&maxLength&&6&&&&&&400&&
+477&&2&whiteSpace&&6&&&&&&collapse&&
+478&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+479&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+480&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+481&&2&minLength&&6&&&&&&1&&
+482&&2&maxLength&&6&&&&&&400&&
+483&&2&whiteSpace&&6&&&&&&collapse&&
+484&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+485&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+486&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+487&&2&minLength&&6&&&&&&1&&
+488&&2&maxLength&&6&&&&&&400&&
+489&&2&whiteSpace&&6&&&&&&collapse&&
+490&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+491&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+492&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+493&&2&minLength&&6&&&&&&1&&
+494&&2&maxLength&&6&&&&&&400&&
+495&&2&whiteSpace&&6&&&&&&collapse&&
+496&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+497&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+498&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+499&&2&minLength&&6&&&&&&1&&
+500&&2&maxLength&&6&&&&&&400&&
+501&&2&whiteSpace&&6&&&&&&collapse&&
+502&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+503&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+504&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+505&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+506&&2&minLength&&6&&&&&&1&&
+507&&2&maxLength&&6&&&&&&400&&
+508&&2&whiteSpace&&6&&&&&&collapse&&
+509&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+510&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+511&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+512&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+513&uniqueResCountryCodeOrganisationUnknown&3&unique&"
+                    "&5&&&&&&&&
+514&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+515&&4&field&&5&&&&&&&&.
+516&AffectedPerson&2&element&&5&xsd:boolean&&&&&&&
+517&Intermediaries&2&element&&1&dac6:Intermediaries_Type&&0&&&&&
+518&Intermediaries_Type&0&complexType&"
+        "&2&&&&&&&&
+519&Intermediary&2&element&&2&dac6:Intermediary&&0&unbounded&&&&
+520&Intermediary&0&complexType&"
+        "&3&&&&&&&&
+521&&2&extension&&3&&&&&dac6:Intermediary_Type&&&
+522&AffectedPersons&2&element&&1&dac6:AffectedPersons_Type&&0&&&&&
+523&AffectedPersons_Type&0&complexType&"
+        "&2&&&&&&&&
+524&AffectedPerson&2&element&&2&dac6:AffectedPerson_Type&&0&unbounded&&&&
+525&AffectedPerson_Type&0&complexType&"
+        "&3&&&&&&&&
+526&AffectedPersonID&2&element&&3&dac6:PersonOrOrganisationUnknown_Type&&&&&&&
+527&PersonOrOrganisationUnknown_Type&0&complexType&"
+        "&4&&&&&&&&
+528&Individual&3&element&&4&dac6:PersonUnknown_Type&&&&&&&
+529&PersonUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+530&&2&documentation&"
+                This container brings together all data about a person as a stakeholder. Name and country of
+                residency are required components and each can
+                be present more than once to enable as complete a description as possible. Whenever possible one or
+                more identifiers (TIN) should be added. Additional data that describes and identifies the party must
+                be
+                given, as Birth date and Birth place.
+            "&5&&en&&&&&&
+531&IndividualName&2&element&&5&dac6:NamePersonUnknown_Type&&&&&&&
+532&NamePersonUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+533&&2&documentation&"The user must spread the data about the name of a party over up to six
+                elements. The container element for this will be 'NameFix'.
+            "&6&&en&&&&&&
+534&PrecedingTitle&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+535&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+536&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+537&&2&minLength&&7&&&&&&1&&
+538&&2&maxLength&&7&&&&&&200&&
+539&&2&whiteSpace&&7&&&&&&collapse&&
+540&&4&documentation&His Excellency,Estate of the Late ...&6&&en&&&&&&
+541&Title&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+542&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+543&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+544&&2&minLength&&7&&&&&&1&&
+545&&2&maxLength&&7&&&&&&200&&
+546&&2&whiteSpace&&7&&&&&&collapse&&
+547&&4&documentation&"Greeting title. Example: Mr, Dr, Ms, Herr, etc.
+                    "&6&&en&&&&&&
+548&FirstName&2&element&"
+                "&6&dac6:StringMax200Unknown_Type&&&&&&&
+549&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+550&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+551&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+552&&4&documentation&FirstName of the person&6&&en&&&&&&
+553&MiddleName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+554&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+555&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+556&&2&minLength&&7&&&&&&1&&
+557&&2&maxLength&&7&&&&&&200&&
+558&&2&whiteSpace&&7&&&&&&collapse&&
+559&&4&documentation&"Middle name (essential part of the name for many nationalities).
+                        Example: Sakthi in ""Nivetha Sakthi Shantha"".
+                    "&6&&en&&&&&&
+560&NamePrefix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+561&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+562&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+563&&2&minLength&&7&&&&&&1&&
+564&&2&maxLength&&7&&&&&&200&&
+565&&2&whiteSpace&&7&&&&&&collapse&&
+566&&4&documentation&"de, van, van de, von, etc. Example: Derick de Clarke
+                    "&6&&en&&&&&&
+567&LastName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&&&&&&
+568&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+569&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+570&&2&minLength&&7&&&&&&1&&
+571&&2&maxLength&&7&&&&&&200&&
+572&&2&whiteSpace&&7&&&&&&collapse&&
+573&&4&documentation&"Represents the position of the name in a name string. Can be
+                        Given Name, Forename, Christian Name, Surname, Family Name, etc. Use the attribute ""NameType""
+                        to define what type this name is.
+                        In case of a company, this field can be used for the company name.
+                    "&6&&en&&&&&&
+574&GenerationIdentifier&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+575&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+576&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+577&&2&minLength&&7&&&&&&1&&
+578&&2&maxLength&&7&&&&&&200&&
+579&&2&whiteSpace&&7&&&&&&collapse&&
+580&&4&documentation&Jnr, Thr Third, III&6&&en&&&&&&
+581&Suffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+582&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+583&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+584&&2&minLength&&7&&&&&&1&&
+585&&2&maxLength&&7&&&&&&200&&
+586&&2&whiteSpace&&7&&&&&&collapse&&
+587&&4&documentation&Could be compressed initials - PhD, VC, QC&6&&en&&&&&&
+588&GeneralSuffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+589&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+590&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+591&&2&minLength&&7&&&&&&1&&
+592&&2&maxLength&&7&&&&&&200&&
+593&&2&whiteSpace&&7&&&&&&collapse&&
+594&&4&documentation&Deceased, Retired ...&6&&en&&&&&&
+595&BirthDate&2&element&&5&dac6:DateUnknown_Type&&&&&&&
+596&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+597&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+598&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+599&BirthPlace&2&element&&5&dac6:StringMax200Unknown_Type&&&&&&&
+600&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+601&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+602&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+603&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+604&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+605&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+606&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+607&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+608&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+609&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+610&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+611&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+612&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+613&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+614&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+615&&2&minLength&&6&&&&&&1&&
+616&&2&maxLength&&6&&&&&&400&&
+617&&2&whiteSpace&&6&&&&&&collapse&&
+618&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+619&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+620&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+621&&2&minLength&&6&&&&&&1&&
+622&&2&maxLength&&6&&&&&&400&&
+623&&2&whiteSpace&&6&&&&&&collapse&&
+624&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+625&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+626&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+627&&2&minLength&&6&&&&&&1&&
+628&&2&maxLength&&6&&&&&&400&&
+629&&2&whiteSpace&&6&&&&&&collapse&&
+630&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+631&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+632&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+633&&2&minLength&&6&&&&&&1&&
+634&&2&maxLength&&6&&&&&&400&&
+635&&2&whiteSpace&&6&&&&&&collapse&&
+636&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+637&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+638&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+639&&2&minLength&&6&&&&&&1&&
+640&&2&maxLength&&6&&&&&&400&&
+641&&2&whiteSpace&&6&&&&&&collapse&&
+642&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+643&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+644&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+645&&2&minLength&&6&&&&&&1&&
+646&&2&maxLength&&6&&&&&&400&&
+647&&2&whiteSpace&&6&&&&&&collapse&&
+648&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+649&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+650&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+651&&2&minLength&&6&&&&&&1&&
+652&&2&maxLength&&6&&&&&&400&&
+653&&2&whiteSpace&&6&&&&&&collapse&&
+654&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+655&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+656&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+657&&2&minLength&&6&&&&&&1&&
+658&&2&maxLength&&6&&&&&&400&&
+659&&2&whiteSpace&&6&&&&&&collapse&&
+660&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+661&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+662&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+663&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+664&&2&minLength&&6&&&&&&1&&
+665&&2&maxLength&&6&&&&&&400&&
+666&&2&whiteSpace&&6&&&&&&collapse&&
+667&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+668&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+669&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+670&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+671&uniqueResCountryCodeIndividualUnknown&3&unique&"
+                    "&5&&&&&&&&
+672&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+673&&4&field&&5&&&&&&&&.
+674&Organisation&3&element&&4&dac6:OrganisationUnknown_Type&&&&&&&
+675&OrganisationUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+676&&2&documentation&"
+            "&5&&en&&&&&&
+677&OrganisationName&2&element&&5&dac6:NameOrganisation_Type&&&unbounded&&&&
+678&NameOrganisation_Type&0&complexType&"
+        "&6&&&&&&&&
+679&&2&documentation&Name of organisation&6&&en&&&&&&
+680&&2&extension&"
+                "&6&&&&&dac6:StringMin1Max200_Type&&&
+681&language&3&attribute&"
+                    "&6&iso:LanguageCode_Type&&&&&&&
+682&&5&documentation&Language used&6&&en&&&&&&
+683&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+684&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+685&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+686&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+687&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+688&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+689&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+690&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+691&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+692&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+693&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+694&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+695&&2&minLength&&6&&&&&&1&&
+696&&2&maxLength&&6&&&&&&400&&
+697&&2&whiteSpace&&6&&&&&&collapse&&
+698&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+699&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+700&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+701&&2&minLength&&6&&&&&&1&&
+702&&2&maxLength&&6&&&&&&400&&
+703&&2&whiteSpace&&6&&&&&&collapse&&
+704&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+705&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+706&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+707&&2&minLength&&6&&&&&&1&&
+708&&2&maxLength&&6&&&&&&400&&
+709&&2&whiteSpace&&6&&&&&&collapse&&
+710&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+711&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+712&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+713&&2&minLength&&6&&&&&&1&&
+714&&2&maxLength&&6&&&&&&400&&
+715&&2&whiteSpace&&6&&&&&&collapse&&
+716&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+717&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+718&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+719&&2&minLength&&6&&&&&&1&&
+720&&2&maxLength&&6&&&&&&400&&
+721&&2&whiteSpace&&6&&&&&&collapse&&
+722&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+723&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+724&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+725&&2&minLength&&6&&&&&&1&&
+726&&2&maxLength&&6&&&&&&400&&
+727&&2&whiteSpace&&6&&&&&&collapse&&
+728&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+729&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+730&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+731&&2&minLength&&6&&&&&&1&&
+732&&2&maxLength&&6&&&&&&400&&
+733&&2&whiteSpace&&6&&&&&&collapse&&
+734&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+735&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+736&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+737&&2&minLength&&6&&&&&&1&&
+738&&2&maxLength&&6&&&&&&400&&
+739&&2&whiteSpace&&6&&&&&&collapse&&
+740&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+741&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+742&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+743&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+744&&2&minLength&&6&&&&&&1&&
+745&&2&maxLength&&6&&&&&&400&&
+746&&2&whiteSpace&&6&&&&&&collapse&&
+747&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+748&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+749&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+750&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+751&uniqueResCountryCodeOrganisationUnknown&3&unique&"
+                    "&5&&&&&&&&
+752&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+753&&4&field&&5&&&&&&&&.
+754&DisclosureInformation&2&element&&1&dac6:DisclosureInformation_Type&&&&&&&
+755&DisclosureInformation_Type&0&complexType&"
+        "&2&&&&&&&&
+756&ImplementingDate&2&element&&2&dac6:DateUnknown_Type&&&&&&&
+757&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+758&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+759&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+760&Reason&2&element&&2&dac6:DisclosureReason_EnumType&&0&&&&&
+761&DisclosureReason_EnumType&0&simpleType&"
+        "&3&&&&&&&&
+762&&2&documentation&Reason for disclosure&3&&en&&&&&&
+763&&1&restriction&"
+            "&3&&&&&xsd:string&&&
+764&&2&enumeration&"
+                "&3&&&&&&DAC6701&&
+765&&2&enumeration&"
+                "&3&&&&&&DAC6702&&
+766&&2&enumeration&"
+                "&3&&&&&&DAC6703&&
+767&&2&enumeration&"
+                "&3&&&&&&DAC6704&&
+768&Summary&2&element&&2&dac6:Summary_Type&&&&&&&
+769&Summary_Type&0&complexType&"
+        "&3&&&&&&&&
+770&Disclosure_Name&2&element&&3&dac6:StringMin1Max400_Type&&&&&&&
+771&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+772&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+773&&2&minLength&&6&&&&&&1&&
+774&&2&maxLength&&6&&&&&&400&&
+775&&2&whiteSpace&&6&&&&&&collapse&&
+776&Disclosure_Description&2&element&&3&dac6:StringMin1Max4000WithLang_Type&&&unbounded&&&&
+777&StringMin1Max4000WithLang_Type&0&complexType&"
+        "&4&&&&&&&&
+778&&2&documentation&"Defines a string with minimum length 1 and maximum length of 4000, with
+                the Language attribute
+            "&4&&en&&&&&&
+779&&2&extension&"
+                "&4&&&&&dac6:StringMin1Max4000_Type&&&
+780&language&3&attribute&"
+                    "&4&iso:LanguageCode_Type&&&&&&&
+781&&5&documentation&Language used&4&&en&&&&&&
+782&NationalProvision&2&element&&2&dac6:StringMin1Max4000WithLang_Type&&&unbounded&&&&
+783&StringMin1Max4000WithLang_Type&0&complexType&"
+        "&4&&&&&&&&
+784&&2&documentation&"Defines a string with minimum length 1 and maximum length of 4000, with
+                the Language attribute
+            "&4&&en&&&&&&
+785&&2&extension&"
+                "&4&&&&&dac6:StringMin1Max4000_Type&&&
+786&language&3&attribute&"
+                    "&4&iso:LanguageCode_Type&&&&&&&
+787&&5&documentation&Language used&4&&en&&&&&&
+788&Amount&2&element&&2&dac6:AmountUnknown_Type&&&&&&&
+789&AmountUnknown_Type&0&complexType&"
+        "&3&&&&&&&&
+790&&2&documentation&"
+                This data type is to be used whenever monetary amounts are to be communicated. Such amounts shall be
+                given
+                in full units, i.e. without decimals. The code for the currency in which the value is expressed has
+                to be
+                taken from the ISO codelist 4217 and added in attribute currCode.
+            "&3&&en&&&&&&
+791&&2&extension&"
+                "&3&&&&&dac6:Long_Type&&&
+792&currCode&3&attribute&&3&iso:currCode_Type&&&&&&&
+793&unknown&3&attribute&&3&xsd:boolean&&&&&&&
+794&ArrangementChart&2&element&&2&dac6:ArrangementChartRoot_Type&&0&&&&&
+795&ArrangementChartRoot_Type&0&complexType&"
+        "&3&&&&&&&&
+796&&2&extension&"
+                "&3&&&&&dac6:AbstractArrangementChart_Type&&&
+797&ID&4&element&&3&dac6:PersonOrOrganisationUnknown_Type&&0&&&&&
+798&PersonOrOrganisationUnknown_Type&0&complexType&"
+        "&4&&&&&&&&
+799&Individual&3&element&&4&dac6:PersonUnknown_Type&&&&&&&
+800&PersonUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+801&&2&documentation&"
+                This container brings together all data about a person as a stakeholder. Name and country of
+                residency are required components and each can
+                be present more than once to enable as complete a description as possible. Whenever possible one or
+                more identifiers (TIN) should be added. Additional data that describes and identifies the party must
+                be
+                given, as Birth date and Birth place.
+            "&5&&en&&&&&&
+802&IndividualName&2&element&&5&dac6:NamePersonUnknown_Type&&&&&&&
+803&NamePersonUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+804&&2&documentation&"The user must spread the data about the name of a party over up to six
+                elements. The container element for this will be 'NameFix'.
+            "&6&&en&&&&&&
+805&PrecedingTitle&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+806&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+807&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+808&&2&minLength&&7&&&&&&1&&
+809&&2&maxLength&&7&&&&&&200&&
+810&&2&whiteSpace&&7&&&&&&collapse&&
+811&&4&documentation&His Excellency,Estate of the Late ...&6&&en&&&&&&
+812&Title&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+813&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+814&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+815&&2&minLength&&7&&&&&&1&&
+816&&2&maxLength&&7&&&&&&200&&
+817&&2&whiteSpace&&7&&&&&&collapse&&
+818&&4&documentation&"Greeting title. Example: Mr, Dr, Ms, Herr, etc.
+                    "&6&&en&&&&&&
+819&FirstName&2&element&"
+                "&6&dac6:StringMax200Unknown_Type&&&&&&&
+820&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+821&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+822&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+823&&4&documentation&FirstName of the person&6&&en&&&&&&
+824&MiddleName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+825&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+826&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+827&&2&minLength&&7&&&&&&1&&
+828&&2&maxLength&&7&&&&&&200&&
+829&&2&whiteSpace&&7&&&&&&collapse&&
+830&&4&documentation&"Middle name (essential part of the name for many nationalities).
+                        Example: Sakthi in ""Nivetha Sakthi Shantha"".
+                    "&6&&en&&&&&&
+831&NamePrefix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+832&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+833&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+834&&2&minLength&&7&&&&&&1&&
+835&&2&maxLength&&7&&&&&&200&&
+836&&2&whiteSpace&&7&&&&&&collapse&&
+837&&4&documentation&"de, van, van de, von, etc. Example: Derick de Clarke
+                    "&6&&en&&&&&&
+838&LastName&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&&&&&&
+839&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+840&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+841&&2&minLength&&7&&&&&&1&&
+842&&2&maxLength&&7&&&&&&200&&
+843&&2&whiteSpace&&7&&&&&&collapse&&
+844&&4&documentation&"Represents the position of the name in a name string. Can be
+                        Given Name, Forename, Christian Name, Surname, Family Name, etc. Use the attribute ""NameType""
+                        to define what type this name is.
+                        In case of a company, this field can be used for the company name.
+                    "&6&&en&&&&&&
+845&GenerationIdentifier&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+846&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+847&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+848&&2&minLength&&7&&&&&&1&&
+849&&2&maxLength&&7&&&&&&200&&
+850&&2&whiteSpace&&7&&&&&&collapse&&
+851&&4&documentation&Jnr, Thr Third, III&6&&en&&&&&&
+852&Suffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+853&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+854&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+855&&2&minLength&&7&&&&&&1&&
+856&&2&maxLength&&7&&&&&&200&&
+857&&2&whiteSpace&&7&&&&&&collapse&&
+858&&4&documentation&Could be compressed initials - PhD, VC, QC&6&&en&&&&&&
+859&GeneralSuffix&2&element&"
+                "&6&dac6:StringMin1Max200_Type&&0&&&&&
+860&StringMin1Max200_Type&0&simpleType&"
+        "&7&&&&&&&&
+861&&1&restriction&"
+            "&7&&&&&xsd:string&&&
+862&&2&minLength&&7&&&&&&1&&
+863&&2&maxLength&&7&&&&&&200&&
+864&&2&whiteSpace&&7&&&&&&collapse&&
+865&&4&documentation&Deceased, Retired ...&6&&en&&&&&&
+866&BirthDate&2&element&&5&dac6:DateUnknown_Type&&&&&&&
+867&DateUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+868&&2&extension&"
+                "&6&&&&&dac6:EmptyDate_Type&&&
+869&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+870&BirthPlace&2&element&&5&dac6:StringMax200Unknown_Type&&&&&&&
+871&StringMax200Unknown_Type&0&complexType&"
+        "&6&&&&&&&&
+872&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+873&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+874&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+875&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+876&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+877&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+878&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+879&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+880&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+881&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+882&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+883&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+884&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+885&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+886&&2&minLength&&6&&&&&&1&&
+887&&2&maxLength&&6&&&&&&400&&
+888&&2&whiteSpace&&6&&&&&&collapse&&
+889&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+890&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+891&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+892&&2&minLength&&6&&&&&&1&&
+893&&2&maxLength&&6&&&&&&400&&
+894&&2&whiteSpace&&6&&&&&&collapse&&
+895&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+896&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+897&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+898&&2&minLength&&6&&&&&&1&&
+899&&2&maxLength&&6&&&&&&400&&
+900&&2&whiteSpace&&6&&&&&&collapse&&
+901&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+902&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+903&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+904&&2&minLength&&6&&&&&&1&&
+905&&2&maxLength&&6&&&&&&400&&
+906&&2&whiteSpace&&6&&&&&&collapse&&
+907&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+908&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+909&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+910&&2&minLength&&6&&&&&&1&&
+911&&2&maxLength&&6&&&&&&400&&
+912&&2&whiteSpace&&6&&&&&&collapse&&
+913&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+914&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+915&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+916&&2&minLength&&6&&&&&&1&&
+917&&2&maxLength&&6&&&&&&400&&
+918&&2&whiteSpace&&6&&&&&&collapse&&
+919&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+920&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+921&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+922&&2&minLength&&6&&&&&&1&&
+923&&2&maxLength&&6&&&&&&400&&
+924&&2&whiteSpace&&6&&&&&&collapse&&
+925&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+926&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+927&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+928&&2&minLength&&6&&&&&&1&&
+929&&2&maxLength&&6&&&&&&400&&
+930&&2&whiteSpace&&6&&&&&&collapse&&
+931&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+932&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+933&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+934&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+935&&2&minLength&&6&&&&&&1&&
+936&&2&maxLength&&6&&&&&&400&&
+937&&2&whiteSpace&&6&&&&&&collapse&&
+938&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+939&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+940&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+941&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+942&uniqueResCountryCodeIndividualUnknown&3&unique&"
+                    "&5&&&&&&&&
+943&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+944&&4&field&&5&&&&&&&&.
+945&Organisation&3&element&&4&dac6:OrganisationUnknown_Type&&&&&&&
+946&OrganisationUnknown_Type&0&complexType&"
+        "&5&&&&&&&&
+947&&2&documentation&"
+            "&5&&en&&&&&&
+948&OrganisationName&2&element&&5&dac6:NameOrganisation_Type&&&unbounded&&&&
+949&NameOrganisation_Type&0&complexType&"
+        "&6&&&&&&&&
+950&&2&documentation&Name of organisation&6&&en&&&&&&
+951&&2&extension&"
+                "&6&&&&&dac6:StringMin1Max200_Type&&&
+952&language&3&attribute&"
+                    "&6&iso:LanguageCode_Type&&&&&&&
+953&&5&documentation&Language used&6&&en&&&&&&
+954&TIN&2&element&&5&dac6:TINUnknown_Type&&0&unbounded&&&&
+955&TINUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+956&&2&documentation&"This is the identification number/identification code for the party in
+                question. As the identifier may be not strictly numeric, it is just defined as a string of
+                characters. Attribute 'issuedBy' is required to designate the issuer of the identifier.
+            "&6&&en&&&&&&
+957&&2&extension&"
+                "&6&&&&&dac6:StringMin0Max200_Type&&&
+958&issuedBy&3&attribute&"
+                    "&6&iso:CountryCode_Type&&&&&&&
+959&&5&documentation&"Country code of issuing country, indicating country of
+                            Residence (to taxes and other)
+                        "&6&&en&&&&&&
+960&unknown&3&attribute&&6&xsd:boolean&&&&&&&
+961&Address&2&element&&5&dac6:Address_Type&&0&&&&&
+962&Address_Type&0&complexType&"
+        "&6&&&&&&&&
+963&Street&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+964&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+965&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+966&&2&minLength&&6&&&&&&1&&
+967&&2&maxLength&&6&&&&&&400&&
+968&&2&whiteSpace&&6&&&&&&collapse&&
+969&BuildingIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+970&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+971&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+972&&2&minLength&&6&&&&&&1&&
+973&&2&maxLength&&6&&&&&&400&&
+974&&2&whiteSpace&&6&&&&&&collapse&&
+975&SuiteIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+976&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+977&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+978&&2&minLength&&6&&&&&&1&&
+979&&2&maxLength&&6&&&&&&400&&
+980&&2&whiteSpace&&6&&&&&&collapse&&
+981&FloorIdentifier&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+982&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+983&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+984&&2&minLength&&6&&&&&&1&&
+985&&2&maxLength&&6&&&&&&400&&
+986&&2&whiteSpace&&6&&&&&&collapse&&
+987&DistrictName&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+988&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+989&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+990&&2&minLength&&6&&&&&&1&&
+991&&2&maxLength&&6&&&&&&400&&
+992&&2&whiteSpace&&6&&&&&&collapse&&
+993&POB&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+994&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+995&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+996&&2&minLength&&6&&&&&&1&&
+997&&2&maxLength&&6&&&&&&400&&
+998&&2&whiteSpace&&6&&&&&&collapse&&
+999&PostCode&2&element&&6&dac6:StringMin1Max400_Type&&0&&&&&
+1000&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+1001&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+1002&&2&minLength&&6&&&&&&1&&
+1003&&2&maxLength&&6&&&&&&400&&
+1004&&2&whiteSpace&&6&&&&&&collapse&&
+1005&City&2&element&&6&dac6:StringMin1Max400_Type&&&&&&&
+1006&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+1007&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+1008&&2&minLength&&6&&&&&&1&&
+1009&&2&maxLength&&6&&&&&&400&&
+1010&&2&whiteSpace&&6&&&&&&collapse&&
+1011&Country&2&element&&6&iso:CountryCode_Type&&&&&&&
+1012&EmailAddress&2&element&&5&dac6:StringMin1Max400_Type&&0&&&&&
+1013&StringMin1Max400_Type&0&simpleType&"
+        "&6&&&&&&&&
+1014&&1&restriction&"
+            "&6&&&&&xsd:string&&&
+1015&&2&minLength&&6&&&&&&1&&
+1016&&2&maxLength&&6&&&&&&400&&
+1017&&2&whiteSpace&&6&&&&&&collapse&&
+1018&ResCountryCodes&2&element&"
+                "&5&dac6:ResCountryCodeUnknown_Type&&&&&&&
+1019&ResCountryCodeUnknown_Type&0&complexType&"
+        "&6&&&&&&&&
+1020&ResCountryCode&2&element&&6&iso:CountryCode_Type&&0&unbounded&&&&
+1021&unknown&1&attribute&&6&xsd:boolean&&&&&&&
+1022&uniqueResCountryCodeOrganisationUnknown&3&unique&"
+                    "&5&&&&&&&&
+1023&&4&selector&&5&&&&&&&&dac6:ResCountryCode
+1024&&4&field&&5&&&&&&&&.
+1025&Void&3&attribute&&3&xsd:boolean&&&&&&&
+1026&ConcernedMSs&2&element&"
+                "&2&dac6:ConcernedMSs_Type&&&&&&&
+1027&ConcernedMSs_Type&0&complexType&"
+        "&3&&&&&&&&
+1028&ConcernedMS&2&element&&3&iso:MSCountryCode_Type&&&unbounded&&&&
+1029&uniqueConcernedMS&3&unique&"
+                    "&2&&&&&&&&
+1030&&4&selector&&2&&&&&&&&dac6:ConcernedMS
+1031&&4&field&&2&&&&&&&&.
+1032&MainBenefitTest1&2&element&&2&xsd:boolean&&&&&&false&
+1033&Hallmarks&2&element&&2&dac6:Hallmarks_Type&&&&&&&
+1034&Hallmarks_Type&0&complexType&"
+        "&3&&&&&&&&
+1035&ListHallmarks&2&element&"
+                "&3&dac6:ListHallmarks_Type&&&&&&&
+1036&ListHallmarks_Type&0&complexType&"
+        "&4&&&&&&&&
+1037&Hallmark&2&element&&4&dac6:HallmarkEnum_Type&&&unbounded&&&&
+1038&HallmarkEnum_Type&0&simpleType&"
+        "&5&&&&&&&&
+1039&&2&documentation&Categories of hallmarks&5&&en&&&&&&
+1040&&1&restriction&"
+            "&5&&&&&xsd:string&&&
+1041&&2&enumeration&"
+                "&5&&&&&&DAC6A1&&
+1042&&2&enumeration&"
+                "&5&&&&&&DAC6A2a&&
+1043&&2&enumeration&"
+                "&5&&&&&&DAC6A2b&&
+1044&&2&enumeration&"
+                "&5&&&&&&DAC6A3&&
+1045&&2&enumeration&"
+                "&5&&&&&&DAC6B1&&
+1046&&2&enumeration&"
+                "&5&&&&&&DAC6B2&&
+1047&&2&enumeration&"
+                "&5&&&&&&DAC6B3&&
+1048&&2&enumeration&"
+                "&5&&&&&&DAC6C1a&&
+1049&&2&enumeration&"
+                "&5&&&&&&DAC6C1bi&&
+1050&&2&enumeration&"
+                "&5&&&&&&DAC6C1bii&&
+1051&&2&enumeration&"
+                "&5&&&&&&DAC6C1c&&
+1052&&2&enumeration&"
+                "&5&&&&&&DAC6C1d&&
+1053&&2&enumeration&"
+                "&5&&&&&&DAC6C2&&
+1054&&2&enumeration&"
+                "&5&&&&&&DAC6C3&&
+1055&&2&enumeration&"
+                "&5&&&&&&DAC6C4&&
+1056&&2&enumeration&"
+                "&5&&&&&&DAC6D1Other&&
+1057&&2&enumeration&"
+                "&5&&&&&&DAC6D1a&&
+1058&&2&enumeration&"
+                "&5&&&&&&DAC6D1b&&
+1059&&2&enumeration&"
+                "&5&&&&&&DAC6D1c&&
+1060&&2&enumeration&"
+                "&5&&&&&&DAC6D1d&&
+1061&&2&enumeration&"
+                "&5&&&&&&DAC6D1e&&
+1062&&2&enumeration&"
+                "&5&&&&&&DAC6D1f&&
+1063&&2&enumeration&"
+                "&5&&&&&&DAC6D2&&
+1064&&2&enumeration&"
+                "&5&&&&&&DAC6E1&&
+1065&&2&enumeration&"
+                "&5&&&&&&DAC6E2&&
+1066&&2&enumeration&"
+                "&5&&&&&&DAC6E3&&
+1067&uniqueHallmark&3&unique&"
+                    "&3&&&&&&&&
+1068&&4&selector&&3&&&&&&&&dac6:Hallmark
+1069&&4&field&&3&&&&&&&&.
+1070&DAC6D1OtherInfo&2&element&&3&dac6:StringMin1Max4000WithLang_Type&&0&unbounded&&&&
+1071&StringMin1Max4000WithLang_Type&0&complexType&"
+        "&4&&&&&&&&
+1072&&2&documentation&"Defines a string with minimum length 1 and maximum length of 4000, with
+                the Language attribute
+            "&4&&en&&&&&&
+1073&&2&extension&"
+                "&4&&&&&dac6:StringMin1Max4000_Type&&&
+1074&language&3&attribute&"
+                    "&4&iso:LanguageCode_Type&&&&&&&
+1075&&5&documentation&Language used&4&&en&&&&&&
+1076&PartialGDPRUpdate&1&attribute&"
+            "&1&xsd:boolean&&&&&&&
+1077&&3&documentation&"Information about the update of Disclosure to comply with Partial
+                    GDPR (true) or not (false or not provided).
+                "&1&&en&&&&&&
+1078&FullyGDPRUpdate&1&attribute&"
+            "&1&xsd:boolean&&&&&&&
+1079&&3&documentation&"Information about the update of Disclosure to comply with Fully
+                    GDPR (true) or not (false or not provided).
+                "&1&&en&&&&&&
+1080&version&2&attribute&"
+                "&0&xsd:string&&&&&&&
+1081&&4&documentation&dac6 Version&0&&en&&&&&&
